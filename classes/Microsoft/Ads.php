@@ -14,7 +14,7 @@ ini_set("soap.wsdl_cache_ttl", 0);
 
 class Ads
 {
-	private $authData = null;
+	public $authData = null;
 	public ?ServiceClient $customerBillingProxy = null;
 	public ?ServiceClient $customerManagementProxy = null;
 	public ?ServiceClient $reportingProxy = null;

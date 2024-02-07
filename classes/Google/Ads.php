@@ -8,7 +8,7 @@ use Google\Ads\GoogleAds\Lib\V15\GoogleAdsClientBuilder;
 
 class Ads
 {
-	private ?GoogleAdsClient $instance = null;
+	public ?GoogleAdsClient $instance = null;
 
 	function __construct($clientId, $clientSecret, $developerToken, $refreshToken, $mccAccountId)
 	{

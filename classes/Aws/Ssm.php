@@ -7,7 +7,7 @@ use Ems\Json;
 
 class Ssm
 {
-	private ?SsmClient $instance = null;
+	public ?SsmClient $instance = null;
 
 	function __construct($region)
 	{

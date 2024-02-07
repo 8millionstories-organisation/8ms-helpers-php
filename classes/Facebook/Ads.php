@@ -6,7 +6,7 @@ use FacebookAds\Api;
 
 class Ads
 {
-	private ?Api $instance = null;
+	public ?Api $instance = null;
 
 	function __construct($appId, $appSecret, $accessToken)
 	{

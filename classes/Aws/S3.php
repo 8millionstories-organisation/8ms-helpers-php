@@ -7,7 +7,7 @@ use Ems\Json;
 
 class S3
 {
-	private ?S3Client $instance = null;
+	public ?S3Client $instance = null;
 
 	function __construct($region)
 	{

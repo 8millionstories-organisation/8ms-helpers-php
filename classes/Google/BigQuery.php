@@ -6,7 +6,7 @@ use Google\Cloud\BigQuery\BigQueryClient;
 
 class BigQuery
 {
-	private ?BigQueryClient $instance = null;
+	public ?BigQueryClient $instance = null;
 
 	function __construct($keyFile, $projectId)
 	{

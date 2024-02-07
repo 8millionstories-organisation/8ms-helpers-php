@@ -15,8 +15,8 @@ use Google\Service\Sheets\ValueRange;
  */
 class Sheets
 {
-	private ?GoogleSheets $instance = null;
-	private $sheetId = null;
+	public ?GoogleSheets $instance = null;
+	public $sheetId = null;
 
 	public function __construct($config, $sheetId)
 	{

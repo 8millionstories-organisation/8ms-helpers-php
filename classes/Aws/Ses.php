@@ -7,7 +7,7 @@ use Ems\Api;
 
 class Ses
 {
-	private ?SesClient $instance = null;
+	public ?SesClient $instance = null;
 
 	public $from = null;
 	public $to = [];

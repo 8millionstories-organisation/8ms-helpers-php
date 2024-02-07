@@ -6,7 +6,7 @@ use Google\Cloud\Storage\StorageClient;
 
 class Storage
 {
-	private ?StorageClient $instance = null;
+	public ?StorageClient $instance = null;
 
 	function __construct($keyFile, $projectId)
 	{
