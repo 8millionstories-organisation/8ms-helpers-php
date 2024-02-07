@@ -1,0 +1,27 @@
+{
+	"name":        "8millionstories-organisation/8ms-helpers-php",
+	"autoload":    {
+		"files": [
+			"functions/test/constants.php"
+		],
+		"psr-4": {
+			"Ems\\": "classes/"
+		}
+	},
+	"require":     {
+		"ext-json":      "*",
+		"ext-pdo":       "*",
+		"ext-simplexml": "*",
+		"php":           ">=8.2"
+	},
+	"require-dev": {
+		"aws/aws-sdk-php":           "3.298.4",
+		"catfan/medoo":              "2.1.12",
+		"facebook/php-business-sdk": "19.0",
+		"google/apiclient":          "2.15.3",
+		"google/cloud-bigquery":     "1.29.1",
+		"google/cloud-storage":      "1.37.1",
+		"googleads/google-ads-php":  "22.0.0",
+		"microsoft/bingads":         "13.0.18"
+	}
+}
