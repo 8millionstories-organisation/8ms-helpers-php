@@ -28,12 +28,17 @@ class Ads
 
 	/**
 	 * Function to convert a micro (millions) into Base (normal)
-	 *
-	 * @param $amount
-	 * @return float
 	 */
 	public static function getBaseFromMicro($amount) : float
 	{
 		return $amount ? $amount / 1000000.0 : 0.0;
+	}
+
+	/**
+	 * Function to convert a Base (normal) into micro (millions)
+	 */
+	public static function getMicroFromBase($amount) : float
+	{
+		return $amount ? $amount * 1000000.0 : 0.0;
 	}
 }
