@@ -9,7 +9,7 @@ class Json
 	 */
 	static function getDecoded($input)
 	{
-		$response = @json_decode($input);
+		$response = @json_decode($input, true);
 
 		if(JSON_ERROR_NONE !== json_last_error())
 		{

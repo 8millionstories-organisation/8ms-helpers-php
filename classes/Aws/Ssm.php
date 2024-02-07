@@ -34,7 +34,7 @@ class Ssm
 
 			if($isJson)
 			{
-				$response = Json::getJsonFile($response);
+				$response = Json::getDecoded($response);
 			}
 		}
 
