@@ -46,16 +46,16 @@ class Environment
 
 	static function isDevelopment() : bool
 	{
-		return Environments['DEVELOPMENT'] === self::getEnvironment();
+		return self::$environments['DEVELOPMENT'] === self::getEnvironment();
 	}
 
 	static function isStaging() : bool
 	{
-		return Environments['STAGING'] === self::getEnvironment();
+		return self::$environments['STAGING'] === self::getEnvironment();
 	}
 
 	static function isProduction() : bool
 	{
-		return Environments['PRODUCTION'] === self::getEnvironment();
+		return self::$environments['PRODUCTION'] === self::getEnvironment();
 	}
 }
