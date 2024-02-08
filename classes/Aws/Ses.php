@@ -26,7 +26,7 @@ class Ses
 		]);
 	}
 
-	public function setFrom($from) : Ses
+	public function setFrom(string $from) : Ses
 	{
 		$this->from = $from;
 
@@ -35,21 +35,21 @@ class Ses
 
 	public function setTo($to) : Ses
 	{
-		$this->to = $to;
+		$this->to = is_array($to) ? $to : [$to];
 
 		return $this;
 	}
 
 	public function setCc($cc) : Ses
 	{
-		$this->cc = $cc;
+		$this->cc = is_array($cc) ? $cc : [$cc];
 
 		return $this;
 	}
 
 	public function setBcc($bcc) : Ses
 	{
-		$this->bcc = $bcc;
+		$this->bcc = is_array($bcc) ? $bcc : [$bcc];
 
 		return $this;
 	}
