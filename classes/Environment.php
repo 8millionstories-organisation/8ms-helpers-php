@@ -4,26 +4,26 @@ namespace Ems;
 
 class Environment
 {
-	const ENVIRONMENTS = [
-		'DEVELOPMENT' => 'development',
-		'STAGING'     => 'staging',
-		'PRODUCTION'  => 'production',
+	public static $environments = [
+		'DEVELOPMENT' => 'DEVELOPMENT',
+		'STAGING'     => 'STAGING',
+		'PRODUCTION'  => 'PRODUCTION',
 	];
 
 	static function getEnvironment() : string
 	{
-		$response = self::ENVIRONMENTS['PRODUCTION'];
+		$response = self::$environments['PRODUCTION'];
 
 		if(isset($_ENV['EMS_ENVIRONMENT']))
 		{
-			switch($_ENV['EMS_ENVIRONMENT'])
+			switch(strtoupper($_ENV['EMS_ENVIRONMENT']))
 			{
-				case 'development':
-					$response = self::ENVIRONMENTS['DEVELOPMENT'];
+				case self::$environments['DEVELOPMENT']:
+					$response = self::$environments['DEVELOPMENT'];
 					break;
 
-				case 'staging':
-					$response = self::ENVIRONMENTS['STAGING'];
+				case self::$environments['STAGING']:
+					$response = self::$environments['STAGING'];
 					break;
 			}
 		}
@@ -46,16 +46,16 @@ class Environment
 
 	static function isDevelopment() : bool
 	{
-		return ENVIRONMENTS['DEVELOPMENT'] === self::getEnvironment();
+		return Environments['DEVELOPMENT'] === self::getEnvironment();
 	}
 
 	static function isStaging() : bool
 	{
-		return ENVIRONMENTS['STAGING'] === self::getEnvironment();
+		return Environments['STAGING'] === self::getEnvironment();
 	}
 
 	static function isProduction() : bool
 	{
-		return ENVIRONMENTS['PRODUCTION'] === self::getEnvironment();
+		return Environments['PRODUCTION'] === self::getEnvironment();
 	}
 }
