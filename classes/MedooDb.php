@@ -10,7 +10,7 @@ use Medoo\Medoo;
  */
 class MedooDb
 {
-	private ?Medoo $instance = null;
+	public ?Medoo $instance = null;
 
 	function __construct($url = '', $database = '', $host = '', $pass = '', $user = '', $isPlanetScale = false, $type = 'mysql')
 	{
@@ -66,7 +66,7 @@ class MedooDb
 		{
 			$response['type'] = $matches[1];
 			$response['host'] = $matches[4];
-			$response['database'] = $matches[5];
+			$response['database'] = $matches[6];
 			$response['username'] = $matches[2];
 			$response['password'] = $matches[3];
 		}
