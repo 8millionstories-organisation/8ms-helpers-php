@@ -12,7 +12,7 @@ class MedooDb
 {
 	private ?Medoo $instance = null;
 
-	function __construct($database, $host, $pass, $user, $isPlanetScale = false, $type = 'mysql')
+	function __construct($url = '', $database = '', $host = '', $pass = '', $user = '', $isPlanetScale = false, $type = 'mysql')
 	{
 		$option = [];
 
@@ -25,39 +25,50 @@ class MedooDb
 			];
 		}
 
-		$this->instance = new Medoo([
-			'type'     => $type,
-			'host'     => $host,
-			'database' => $database,
-			'username' => $user,
-			'password' => $pass,
-			'option'   => $option,
-		]);
-	}
-
-	public static function getUserFromUrl($url)
-	{
-		$response = '';
-
-		preg_match('/mysql:\/\/(.*?):/', $url, $userMatch);
-
-		if(2 === count($userMatch))
+		// Parse details from URL
+		if('' !== $url)
 		{
-			$response = $userMatch[1];
+			$auth = static::getAuthFromUrl($url);
+
+			$type = $auth['type'];
+			$host = $auth['host'];
+			$database = $auth['database'];
+			$user = $auth['username'];
+			$pass = $auth['password'];
 		}
 
-		return $response;
+		$this->instance = new Medoo(
+			[
+				'type'     => $type,
+				'host'     => $host,
+				'database' => $database,
+				'username' => $user,
+				'password' => $pass,
+				'option'   => $option,
+			],
+		);
 	}
 
-	public static function getPassFromUrl($url)
+	public static function getAuthFromUrl($url)
 	{
-		$response = '';
+		$response = [
+			'type'     => '',
+			'host'     => '',
+			'database' => '',
+			'username' => '',
+			'password' => '',
+			'option'   => '',
+		];
 
-		preg_match('/mysql:\/\/.*?:(.*)@/', $url, $passwordMatch);
+		preg_match('/^(.*?):\/\/(.*?):(.*?)@(.*?):([0-9]*)\/(.*?)$/', $url, $matches);
 
-		if(2 === count($passwordMatch))
+		if(7 === count($matches))
 		{
-			$response = $passwordMatch[1];
+			$response['type'] = $matches[1];
+			$response['host'] = $matches[4];
+			$response['database'] = $matches[5];
+			$response['username'] = $matches[2];
+			$response['password'] = $matches[3];
 		}
 
 		return $response;
