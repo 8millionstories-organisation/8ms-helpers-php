@@ -3,8 +3,8 @@
 namespace Ems\Google;
 
 use Google\Ads\GoogleAds\Lib\OAuth2TokenBuilder;
-use Google\Ads\GoogleAds\Lib\V15\GoogleAdsClient;
-use Google\Ads\GoogleAds\Lib\V15\GoogleAdsClientBuilder;
+use Google\Ads\GoogleAds\Lib\V17\GoogleAdsClient;
+use Google\Ads\GoogleAds\Lib\V17\GoogleAdsClientBuilder;
 
 class Ads
 {
